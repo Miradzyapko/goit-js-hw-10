@@ -1,17 +1,17 @@
 import './css/styles.css';
 import Notiflix from 'notiflix';
 import { fetchCountries } from './fetchCountries';
-import { createCountryList, createCountry} from './markup';
+import { createCountryList, createCountry } from './markup';
 const debounce = require('lodash.debounce');
 
 const DEBOUNCE_DELAY = 300;
-const refs = {
-inputRef: document.querySelector('#search-box'),
-countryInfo: document.querySelector('.country-info'),
-listRef: document.querySelector('.country-list') }
+
+const inputRef = document.querySelector('#search-box');
+const countryInfo = document.querySelector('.country-info');
+const listRef = document.querySelector('.country-list'); 
 
 
-refs.inputRef.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
+inputRef.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
 function onSearch(evt) {
     evt.preventDefault();
     const countryName = evt.target.value.trim();
@@ -20,8 +20,8 @@ function onSearch(evt) {
    
 }
 function onClearMarkup() {
-    refs.listRef.innerHTML = '';
-    refs.countryInfo.innerHTML = '';
+    listRef.innerHTML = '';
+    countryInfo.innerHTML = '';
 }
     
   
@@ -65,3 +65,4 @@ function checkValue(resolveData) {
          }
 
     }
+    
